@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
-
+import './assets/css/bootstrap-5.0.5-alpha.min.css';
+import './assets/css/animate.css';
+import './assets/css/LineIcons.2.0.css';
+import './assets/css/style.css';
+import './assets/css/style.css.map';
+import Nav from './Components/Nav';
+import Home from './Components/Home';
+import CoursesList from './Components/CoursesList';
+import { Route, Switch } from 'react-router';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav />
+
+      <Switch>
+        <Route path="/courses">
+          <CoursesList />
+        </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
     </div>
   );
 }
